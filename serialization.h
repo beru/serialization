@@ -7,7 +7,7 @@
 
 #include "toString.h"
 
-namespace BinaryBinding {
+namespace Serialization {
 
 struct File
 {
@@ -335,5 +335,5 @@ bool Print(const TCHAR* path, const T& data)
 	return !bFailed;
 }
 
-} // namespace BinaryBinding
+} // namespace Serialization
 

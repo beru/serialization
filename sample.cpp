@@ -52,17 +52,17 @@ struct Connector
 
 bool Save(const TCHAR* path, const Sample& data)
 {
-	return BinaryBinding::Save<Connector>(path, data);
+	return Serialization::Save<Connector>(path, data);
 }
 
 bool Load(const TCHAR* path, Sample& data)
 {
-	return BinaryBinding::Load<Connector>(path, data);
+	return Serialization::Load<Connector>(path, data);
 }
 
 bool Print(const TCHAR* path, Sample& data)
 {
-	return BinaryBinding::Print<Connector>(path, data);
+	return Serialization::Print<Connector>(path, data);
 }
 
 int main(int argc, char* argv[])
