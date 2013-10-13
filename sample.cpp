@@ -1,7 +1,7 @@
 
 #include "sample.h"
 
-#include "serialization.h"
+#include "serialization/serialization.h"
 
 template <
 	template <typename DerivedT>

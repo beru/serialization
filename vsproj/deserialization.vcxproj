@@ -77,16 +77,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\ntoa.h" />
     <ClInclude Include="..\sample.h" />
-    <ClInclude Include="..\serialization.h" />
-    <ClInclude Include="..\stdint.h" />
-    <ClInclude Include="..\strreverse.h" />
+    <ClInclude Include="..\serialization\ntoa.h" />
+    <ClInclude Include="..\serialization\serialization.h" />
+    <ClInclude Include="..\serialization\strreverse.h" />
+    <ClInclude Include="..\serialization\toString.h" />
+    <ClInclude Include="stdint.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\ntoa.cpp" />
     <ClCompile Include="..\sample.cpp" />
-    <ClCompile Include="..\strreverse.cpp" />
+    <ClCompile Include="..\serialization\ntoa.cpp" />
+    <ClCompile Include="..\serialization\strreverse.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

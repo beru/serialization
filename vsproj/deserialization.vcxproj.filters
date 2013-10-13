@@ -18,16 +18,19 @@
     <ClInclude Include="..\sample.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\stdint.h">
+    <ClInclude Include="stdint.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\serialization.h">
+    <ClInclude Include="..\serialization\ntoa.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\ntoa.h">
+    <ClInclude Include="..\serialization\serialization.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\strreverse.h">
+    <ClInclude Include="..\serialization\strreverse.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\serialization\toString.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,10 +38,10 @@
     <ClCompile Include="..\sample.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\ntoa.cpp">
+    <ClCompile Include="..\serialization\strreverse.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\strreverse.cpp">
+    <ClCompile Include="..\serialization\ntoa.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
