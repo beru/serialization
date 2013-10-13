@@ -49,3 +49,14 @@ const char* toString(char* str, bool v)
 	return v ? "true" : "false";
 }
 
+const char* toString(char* str, float v)
+{
+	sprintf(str, "%f", v);
+	return str;
+}
+
+const char* toString(char* str, double v)
+{
+	sprintf(str, "%f", v);
+	return str;
+}

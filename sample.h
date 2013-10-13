@@ -34,6 +34,9 @@ struct Sample
 	RECT* arr;
 	int c;
 	Data d;
+
+	float f;
+	double dbl;
 };
 
 bool Save(const TCHAR* path, const Sample& data);

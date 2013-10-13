@@ -45,6 +45,9 @@ struct Connector
 		}
 		BIND(c);
 		BIND(d);
+
+		BIND(f);
+		BIND(dbl);
 	}
 	
 };

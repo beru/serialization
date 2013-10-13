@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="serialization">
+      <UniqueIdentifier>{efa262a0-935a-4684-831b-870546bbd7d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\sample.h">
@@ -22,27 +25,27 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\serialization\ntoa.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>serialization</Filter>
     </ClInclude>
     <ClInclude Include="..\serialization\serialization.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>serialization</Filter>
     </ClInclude>
     <ClInclude Include="..\serialization\strreverse.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>serialization</Filter>
     </ClInclude>
     <ClInclude Include="..\serialization\toString.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>serialization</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\sample.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\serialization\strreverse.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="..\serialization\ntoa.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\serialization\strreverse.cpp">
+      <Filter>serialization</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
