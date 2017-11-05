@@ -3,8 +3,8 @@
 #include <iostream>
 
 //#define USE_BINARY_ARCHIVE
-#define USE_JSON_ARCHIVE
-//#define USE_XML_ARCHIVE
+//#define USE_JSON_ARCHIVE
+#define USE_XML_ARCHIVE
 //#define USE_INI_ARCHIVE
 
 namespace serialization {
@@ -24,7 +24,7 @@ enum archive_format {
 #endif
 
   //archive_format_default = archive_format_binary,
-  archive_format_default = archive_format_json,
+  archive_format_default = archive_format_xml,
 };
 
 template <typename T>
