@@ -1,12 +1,13 @@
 
 #include <stdio.h>
 #include <limits>
+#include <assert.h>
 
 #include "example0.h"
 #include "../include/serialization.h"
 
 VISITABLE_STRUCT(Pointyo, ekkus, wahhi);
-VISITABLE_STRUCT(ChildStruct, s1, s2, s4, s8, u1, u2, u4, u8, e, b, str, wstr, pts, pts2, pts3, pts4, pts5);
+VISITABLE_STRUCT(ChildStruct, s1, s2, s4, s8, u1, u2, u4, u8, e, b, str, wstr, arr0, pts, pts2, pts3, pts4, pts5);
 VISITABLE_STRUCT(TestStruct, a, f, d, e, b, str, wstr, s);
 
 struct eq_visitor {
@@ -50,6 +51,7 @@ void init(TestStruct& s)
   c.b = true;
   c.str = "ABCDEz";
   c.wstr = L"‚Ÿ‚¡‚£‚¥‚§";
+  c.arr0 = {0, 1, 2};
   c.pts.resize(5);
   for (auto& p : c.pts) {
     p.ekkus = 10;

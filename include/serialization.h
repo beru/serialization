@@ -2,8 +2,8 @@
 
 #include <iostream>
 
-//#define USE_BINARY_ARCHIVE
-//#define USE_JSON_ARCHIVE
+#define USE_BINARY_ARCHIVE
+#define USE_JSON_ARCHIVE
 #define USE_XML_ARCHIVE
 //#define USE_INI_ARCHIVE
 

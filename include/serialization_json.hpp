@@ -9,19 +9,19 @@ struct save_json_visitor {
   save_json_visitor(nlohmann::json& j) : j(j) {}
   nlohmann::json& j;
   
-  template <typename T, typename std::enable_if<std::is_scalar<T>::value>::type* = nullptr>
+  template <typename T, typename std::enable_if<!visit_struct::traits::is_visitable<T>::value>::type* = nullptr>
   void operator()(const char* name, const T& t) {
     j[name] = t;
   }
-  template <typename T, typename std::enable_if<std::is_scalar<T>::value>::type* = nullptr>
+  template <typename T, typename std::enable_if<!visit_struct::traits::is_visitable<T>::value>::type* = nullptr>
   void operator()(const T& t) {
     j.push_back(t);
   }
-  template <typename T, typename std::enable_if<std::is_class<T>::value>::type* = nullptr>
+  template <typename T, typename std::enable_if<visit_struct::traits::is_visitable<T>::value>::type* = nullptr>
   void operator()(const char* name, const T& t) {
     visit_struct::apply_visitor(save_json_visitor(j[name]), t);
   }
-  template <typename T, typename std::enable_if<std::is_class<T>::value>::type* = nullptr>
+  template <typename T, typename std::enable_if<visit_struct::traits::is_visitable<T>::value>::type* = nullptr>
   void operator()(const T& t) {
     nlohmann::json j2;
     visit_struct::apply_visitor(save_json_visitor(j2), t);
@@ -77,19 +77,19 @@ struct load_json_visitor {
   load_json_visitor(const nlohmann::json& j) : j(j) {}
   const nlohmann::json& j;
   
-  template <typename T, typename std::enable_if<std::is_scalar<T>::value>::type* = nullptr>
+  template <typename T, typename std::enable_if<!visit_struct::traits::is_visitable<T>::value>::type* = nullptr>
   void operator()(const char* name, T& t) {
     t = j[name];
   }
-  template <typename T, typename std::enable_if<std::is_scalar<T>::value>::type* = nullptr>
+  template <typename T, typename std::enable_if<!visit_struct::traits::is_visitable<T>::value>::type* = nullptr>
   void operator()(T& t) {
     t = j;
   }
-  template <typename T, typename std::enable_if<std::is_class<T>::value>::type* = nullptr>
+  template <typename T, typename std::enable_if<visit_struct::traits::is_visitable<T>::value>::type* = nullptr>
   void operator()(const char* name, T& t) {
     visit_struct::apply_visitor(load_json_visitor(j[name]), t);
   }
-  template <typename T, typename std::enable_if<std::is_class<T>::value>::type* = nullptr>
+  template <typename T, typename std::enable_if<visit_struct::traits::is_visitable<T>::value>::type* = nullptr>
   void operator()(T& t) {
     visit_struct::apply_visitor(load_json_visitor(j), t);
   }

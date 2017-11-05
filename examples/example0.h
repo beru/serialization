@@ -31,6 +31,7 @@ struct ChildStruct {
   bool b;
   std::string str;
   std::wstring wstr;
+  std::vector<int> arr0;
   std::vector<Pointyo> pts;
   std::array<Pointyo, 8> pts2;
   std::list<Pointyo> pts3;

@@ -18,13 +18,13 @@ private:
     }
   }
 
-  template <typename T, typename std::enable_if<std::is_scalar<T>::value>::type* = nullptr>
+  template <typename T, typename std::enable_if<!visit_struct::traits::is_visitable<T>::value>::type* = nullptr>
   void operator()(T& t) {
     serialize(t);
   }
 
   // for UDTs
-  template <typename T, typename std::enable_if<std::is_class<T>::value>::type* = nullptr>
+  template <typename T, typename std::enable_if<visit_struct::traits::is_visitable<T>::value>::type* = nullptr>
   void operator()(T& t) {
     visit_struct::apply_visitor(*this, t);
   }
