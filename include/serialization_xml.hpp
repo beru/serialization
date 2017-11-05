@@ -15,11 +15,28 @@ const char* get_name() {
   return visit_struct::get_name<T>();
 }
 
+inline void escape_print(std::ostream& s, const char* str, size_t len = 0) {
+  if (!len) len = strlen(str);
+  for (size_t i=0; i<len; ++i) {
+    char c = str[i];
+    switch (c) {
+    case '\"': s << "&quot;"; break;
+    case '\'': s << "&apos;"; break;
+    case '<': s << "&lt;"; break;
+    case '>': s << "&gt;"; break;
+    case '&': s << "&amp;"; break;
+    default: s << c; break;
+    }
+  }
+}
+
 template <typename T>
 struct tag_printer {
   tag_printer(std::ostream& s, const char* name, size_t depth = 0) : s(s), name(name), depth(depth) {
     indent();
-    s << "<" << name << " type=\"" << get_name<T>() << "\">";
+    s << "<" << name << " type=\"";
+    escape_print(s, get_name<T>());
+    s << "\">";
     if (depth) {
       s << std::endl;
     }
@@ -103,17 +120,7 @@ struct save_xml_visitor {
     indent();
     {
       tag_printer<std::string> tag(s, name);
-      for (size_t i=0; i<t.size(); ++i) {
-        char c = t[i];
-        switch (c) {
-        case '\"': s << "&quot;"; break;
-        case '\'': s << "&apos;"; break;
-        case '<': s << "&lt;"; break;
-        case '>': s << "&gt;"; break;
-        case '&': s << "&amp;"; break;
-        default: s << c; break;
-        }
-      }
+      escape_print(s, t.c_str(), t.size());
     }
     s << std::endl;
   }

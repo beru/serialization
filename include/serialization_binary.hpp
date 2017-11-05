@@ -23,7 +23,6 @@ private:
     serialize(t);
   }
 
-  // for UDTs
   template <typename T, typename std::enable_if<visit_struct::traits::is_visitable<T>::value>::type* = nullptr>
   void operator()(T& t) {
     visit_struct::apply_visitor(*this, t);
