@@ -79,8 +79,8 @@ int main(int argc, char* argv[])
   
 #ifdef USE_BINARY_ARCHIVE
   filename = "example0.bin";
-  serialization::serialize(filename, s1);
-  serialization::deserialize(filename, s2);
+  serialization::serialize(filename, s1, serialization::archive_format_binary);
+  serialization::deserialize(filename, s2, serialization::archive_format_binary);
   assert(s1 == s2);
 #endif
 
