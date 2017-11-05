@@ -154,7 +154,7 @@ struct load_binary_visitor : public binary_visitor_base<load_binary_visitor, fal
   void serialize(std::string& t) {
     size_t sz;
     serialize(sz);
-    t.reserve(sz + 1);
+    t.resize(sz);
     serialize((void*)&t[0], sz + 1);
   }
 };

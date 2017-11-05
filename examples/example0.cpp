@@ -14,7 +14,9 @@ struct eq_visitor {
   bool result = true;
   template <typename T>
   void operator()(const char *, const T & t1, const T & t2) {
-    result = result && (t1 == t2);
+    if (!(t1 == t2)) {
+      result = false;
+    }
   }
 };
 template <typename T>

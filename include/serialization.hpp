@@ -27,19 +27,19 @@ template <typename T>
 void serialize(std::ostream& os, const T& value, archive_format format) {
   switch (format) {
 #ifdef USE_BINARY_ARCHIVE
-  case archive_format_binary:   impl::save_binary(os, value);
+  case archive_format_binary:   impl::save_binary(os, value); break;
 #endif
 
 #ifdef USE_JSON_ARCHIVE
-  case archive_format_json:     impl::save_json(os, value);
+  case archive_format_json:     impl::save_json(os, value); break;
 #endif
 
 #ifdef USE_XML_ARCHIVE
-  case archive_format_xml:      impl::save_xml(os, value);
+  case archive_format_xml:      impl::save_xml(os, value); break;
 #endif
 
 #ifdef USE_INI_ARCHIVE
-  case archive_format_ini:      impl::save_ini(os, value);
+  case archive_format_ini:      impl::save_ini(os, value); break;
 #endif
 
   }
@@ -54,19 +54,19 @@ template <typename T>
 void deserialize(std::istream& is, T& value, archive_format format) {
   switch (format) {
 #ifdef USE_BINARY_ARCHIVE
-  case archive_format_binary:   impl::load_binary(is, value);
+  case archive_format_binary:   impl::load_binary(is, value); break;
 #endif
 
 #ifdef USE_JSON_ARCHIVE
-  case archive_format_json:     impl::load_json(is, value);
+  case archive_format_json:     impl::load_json(is, value); break;
 #endif
 
 #ifdef USE_XML_ARCHIVE
-  case archive_format_xml:      impl::load_xml(is, value);
+  case archive_format_xml:      impl::load_xml(is, value); break;
 #endif
 
 #ifdef USE_INI_ARCHIVE
-  case archive_format_ini:      impl::load_ini(is, value);
+  case archive_format_ini:      impl::load_ini(is, value); break;
 #endif
 
   }
